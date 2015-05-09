@@ -1,7 +1,9 @@
 tags:
-  - todo
-  - basics
+  - rspec
   - tdd
+  - intro
+  - methods
+  - arguments
+  - return values
 languages:
   - ruby
-resources: 2

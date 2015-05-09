@@ -34,12 +34,34 @@ The first thing you should know is that the `learn` terminal command, installed 
 
 The idea is that labs come with expectations for how your code should behave and you write the code to make those tests work.
 
-All of our tests are located within the `spec` directory.
+All of our tests are located within the `spec` directory. The code within the `spec` directory is only designed to test that our actual code works. We rarely need to change any code within the `spec` directory.
 
+Our actual code, our programs, our solutions to the challenges in the lab, the stuff that makes our tests pass, are are coded outside of the `spec` directory, generally in the root of the lab directory or in files in directories like `lib` or `app` and more.
 
+In this lab, our tests are in `spec/current_age_for_birth_year_spec.rb` and our actual program and solution will be in a file `current_age_for_birth_year.rb`.
 
+When we run our test program, `spec/current_age_for_birth_year_spec.rb`, that code will load the code in `current_age_for_birth_year.rb` and try to execute `current_age_for_birth_year(1984)` with the expectation that it returns 31. If so, the test will pass. Anything else will make it fail.
 
+The code for our test within `spec/current_age_for_birth_year_spec.rb` is:
 
+```ruby
+require_relative '../current_age_for_birth_year.rb'
 
+describe 'current_age_for_birth_year method' do
+  it 'returns the age of a person based on their year of birth' do
+    age_of_person = current_age_for_birth_year(1984)
+    expect(age_of_person).to eq(31)
+  end
+end
+```
 
+Let's breakdown what happens when you run the `learn` command within this lab's directory.
+
+1. First the `learn` command loads RSpec to run the tests. RSpec will automatically look in a directory called `spec` and try to execute all files whose name end in `_spec.rb`. So you type in `learn`, RSpec is loaded, RSpec finds the file `spec/current_age_for_birth_year_spec.rb`, and it executes that code.  RSpec is just ruby, so everything in our test file `spec/current_age_for_birth_year_spec.rb` must be valid Ruby.
+
+2. The first line of the test, `require_relative '../current_age_for_birth_year.rb`, loads the code from our actual program file so that we can use all the code in that file in our test. That line connects our test to our actual program. 
+
+3. 
+
+The RSpec Framework defines a bunch of words that make it easy to write tests.
 
