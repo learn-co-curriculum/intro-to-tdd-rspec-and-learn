@@ -32,7 +32,7 @@ I expect the method current_age_for_birth_year(1984) to return 31
 
 The [RSpec Testing Framework](http://rspec.info/) is a ruby library designed to allow programmers to describe the behavior and outcomes of their programs in a very natural language similar to the above example. Lots of Ruby and Ruby on Rails labs on Learn include RSpec tests. Let's learn a bit about RSpec.
 
- ### Reading the Test in `spec/current_age_for_birth_year_spec.rb`
+### Reading the Test in `spec/current_age_for_birth_year_spec.rb`
 
 At this point all we want you to be able to do is understand testing at a high level. The idea is that labs come with expectations for how your code should behave and you write the code to make those tests work.
 
