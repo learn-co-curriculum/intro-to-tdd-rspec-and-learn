@@ -155,11 +155,11 @@ That line raises the line of code in our test suite that created the failure and
 
 Before writing any code, our test suite is failing because a line of code within it, namely the line `age_of_person = current_age_for_birth_year(1984)`, tried calling a method, `current_age_for_birth_year`, which we expected to have been defined, but has yet to be defined, thus resulting in a `NoMethodError`.
 
-We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again, it's free. Run the test suite a lot, and read the errors, they are clues. It's totally cool to have errors, a big part of programming is simply getting past the current error your test suite raises and getting to a new error. Progressing through errors until your tests pass is a very normal development cycle.
+We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again. Run the test suite a lot, get instant feedback, read the errors, they are clues. It's totally cool to have errors, a big part of programming is simply getting past the current error your test suite raises and getting to a new error. Progressing through errors until your tests pass is a very normal development cycle.
 
 ### Making Our Tests Pass
 
-So, we conceptually understand what we're trying to build, a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `31`. Our test suite actually executes this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
+So, we conceptually understand what we're trying to build, a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `31`. Our test suite actually tries to executes this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
 
 The first error thrown by the test suite is that our code, defined in `current_age_for_birth_year.rb`, was expected to define a method called `current_age_for_birth_year`, but did not, resulting in our `NoMethodError`.
 
@@ -227,7 +227,7 @@ At this point you should stage your solution with `git add .` and commit it with
 
 ### Weird Things About Testing and Code
 
- If we stop and think about what we've done two weird things might occur to you.
+ If we stop and think about what we've done, two weird things might occur to you.
 
 #### What's our program actually do?
 
@@ -258,9 +258,9 @@ Run this program with `ruby how_old_are_you.rb`. There shouldn't be any errors i
 
 What this program does is load the code in our original program `current_age_for_birth_year.rb`. It then prints the string "What year were you born?". It prompts the user for input via the `gets` method and converts the input to an integer with `to_i`.
 
-The program then evokes / calls the method `current_age_for_birth_year`. The cool part is that this method is not defined within this file, rather, it was defined in a singular, simple file, and just loaded and used in this more complex program.
+The program then evokes / calls the method `current_age_for_birth_year`. The cool part is that this method is not defined within this file, rather, it was defined in a singular, simple file, and just loaded and used in this more complex program. That's the heart of abstraction and encapsulation, `how_old_are_you.rb` doesn't need to know how `current_age_for_birth_year.rb` works, it just gets to load the code and rely that it behaves as expected and defined in the tests for that library.
 
-This is the architecture of real applications.
+This is the architecture of real applications. Each file is a singular, simple, component or unit of work. The files are loaded together by an execution file and the discrete units execute together to make complex and amazing applications.
 
 #### Our Tests Are Only Temporarily Correct
 
@@ -290,3 +290,5 @@ def current_age_for_birth_year(birth_year)
   Time.now.year - birth_year
 end
 ```
+
+Build abstract methods, avoid hard coding known values, they are way more resilient.
