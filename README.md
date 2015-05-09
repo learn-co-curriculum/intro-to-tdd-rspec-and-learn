@@ -223,9 +223,48 @@ end
 
 Run `learn` again and you should see the test suite passing. Great job!
 
-At this point you could probably stage your solution with `git add .` and commit it and push it and open a pull request and make this lab pass because your test suites pass, but let's stop and think for a moment.
+At this point you should stage your solution with `git add .` and commit it with `git commit -am "Done"` and push it with `git push` and open a pull request and make this lab pass. But there's more to think about.
 
-This test suite and our solution are brittle and present a false positive. In a year, our code will break but our tests will still pass. As long as we are relying on hard coded notions of the current year, our code and tests aren't honest. Imagine the following test, making use of Ruby's `Time` class and methods.
+### Weird Things About Testing and Code
+
+ If we stop and think about what we've done two weird things might occur to you.
+
+#### What's our program actually do?
+
+First, while our tests pass, if we were to run just our program file alone, `ruby current_age_for_birth_year.rb`, it seemingly does nothing. You run that command in your shell and you get no output. What sort of program is this file `current_age_for_birth_year.rb` if it does nothing when you run it? What value does it provide?
+
+Actually files and programs like the code in `current_age_for_birth_year.rb` are common and valuable. That file isn't meant to be useful alone. Rather, that file is considered a library. It's a unit of code that just defines a functionality or method that are meant to be loaded and used in more complex programs.
+
+For example, an application that displays a profile of a person might require or load this simple program and use the defined method to display the person's age.
+
+It isn't that the file `current_age_for_birth_year.rb` doesn't do anything. It does something very significant, it defines a method, it creates a unit of work that any other ruby program that loads or requires this file can use. We do this all the time with programs, to make complex programs simple, we break up the functionalities into separate pieces and files that are smaller and easier to manage, edit, and understand.
+
+If you want to see this technique in practice, try this for fun.
+
+Make a new file called `how_old_are_you.rb`. In that file, put the following code and save it:
+
+```ruby
+require_relative './current_age_for_birth_year.rb'
+
+puts "What year were you born?"
+birth_year = gets.to_i
+
+users_age = current_age_for_birth_year(birth_year)
+
+puts "You are: " + users_age.to_s + " years old."
+```
+
+Run this program with `ruby how_old_are_you.rb`. There shouldn't be any errors if you copied all the code from the tutorial but if they are, just read them and try to debug them or ask for help on Learn.
+
+What this program does is load the code in our original program `current_age_for_birth_year.rb`. It then prints the string "What year were you born?". It prompts the user for input via the `gets` method and converts the input to an integer with `to_i`.
+
+The program then evokes / calls the method `current_age_for_birth_year`. The cool part is that this method is not defined within this file, rather, it was defined in a singular, simple file, and just loaded and used in this more complex program.
+
+This is the architecture of real applications.
+
+#### Our Tests Are Only Temporarily Correct
+
+The second weird thing about the current implementation is the test suite and our solution are brittle and can produce a false positive. In a year, our code will break but our tests will still pass. As long as we are relying on hard coded notions of the current year, our code and tests aren't honest. Imagine the following test, making use of Ruby's `Time` class and methods.
 
 File: `spec/current_age_for_birth_year_spec.rb`
 ```
