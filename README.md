@@ -1,8 +1,4 @@
-# Intro to TDD, RSpec, and Learn
-
 ## Intro to TDD, RSpec, and Learn
-
-### Video
 
 ### Objectives
 
