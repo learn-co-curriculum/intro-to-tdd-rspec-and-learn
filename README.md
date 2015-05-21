@@ -10,9 +10,9 @@
 
 ### What's a Test?
 
-A lot of labs on Learn include tests that verify that the code you write behaves and produces the desired result. It's a sort of an abstract concept at first, but it's worth starting to understand, not only so you can be more productive on Learn, but also because Test-Driven-Development, TDD, is considered the most reliable methodology for delivering quality code.
+A lot of labs on Learn include tests that verify that the code you write behaves and produces the desired result. It's a sort of abstract concept at first, but it's worth starting to understand, not only so you can be more productive on Learn, but also because Test-Driven-Development, TDD, is considered the most reliable methodology for delivering quality code.
 
-Imagine needing to write a method, `current_age_for_birth_year`, the purpose is to figure out how old a person currently is based on the year the person was born. A method like this is probably used on the majority of social networks. I tell Facebook that I was born in 1984, the year is currently 2015, Facebook knows that I am currently 31 years old. Next year, without updating Facebook at all, because of this working method, Facebook will know that I'll be 32.
+Imagine needing to write a method, `current_age_for_birth_year`, the purpose being to figure out how old a person currently is based on the year the person was born. A method like this is probably used on the majority of social networks. I tell Facebook that I was born in 1984, the year is currently 2015, Facebook knows that I am currently 31 years old. Next year, without updating Facebook at all, because of this working method, Facebook will know that I'll be 32.
 
 Thinking about the example above, we could define the following requirement of our code.
 
@@ -68,7 +68,7 @@ The next three lines are our actual test code and the most important part of the
 
 To actually test our code, we need to use the method that this test relies on, that this test is designed to exercise. So the first real line of code in our test is: `age_of_person = current_age_for_birth_year(1984)`. What we're doing here is calling a method, `current_age_for_birth_year(1984)`, the very method we're suppose to define and implement, passing it a known argument, `1984`, and assigning the return value of the method to a variable called `age_of_person`. What do you think the value of `age_of_person` should be if the method `current_age_for_birth_year` is called with `1984` as the argument?
 
-The next line of code poses that exact question with an expected outcome. Using lots of `RSpec` methods and syntax, we say, quite colloquially: `expect(age_of_person).to eq(31)`. What this line of code means is that the we `expect` the value of the variable `age_of_person` `to` `eq` (equal) `31`. That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals 31, the age of the person born in 1984. That's a test.
+The next line of code poses that exact question with an expected outcome. Using lots of `RSpec` methods and syntax, we say, quite colloquially: `expect(age_of_person).to eq(31)`. What this line of code means is that we `expect` the value of the variable `age_of_person` `to` `eq` (equal) `31`. That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals 31, the age of the person born in 1984. That's a test.
 
 Our test loads our code, uses our code in the manner desired, and compares the result of our code with a known outcome so that we know our code behaves as we expected.
 
@@ -84,7 +84,7 @@ end
 
 A test is always going to be about setting up a state with a known result and comparing that known result or expectation to the behavior of your program, ensuring that your program behaves as you expected.
 
-There are many kind of tests and Test Driven Development and RSpec are very complex topics, however, just focus on the semantics and meaning of the spec files and you'll be fine and get the hang of it quickly. It's a tremendously valuable skill to be introduced to this early.
+There are many kind of tests, and Test Driven Development and RSpec are very complex topics, however, just focus on the semantics and meaning of the spec files and you'll be fine and get the hang of it quickly. It's a tremendously valuable skill to be introduced to this early.
 
 ### Running Our Tests
 
@@ -237,7 +237,7 @@ At this point you should stage your solution with `git add .` and commit it with
 
 First, while our tests pass, if we were to run just our program file alone, `ruby current_age_for_birth_year.rb`, it seemingly does nothing. You run that command in your shell and you get no output. What sort of program is this file `current_age_for_birth_year.rb` if it does nothing when you run it? What value does it provide?
 
-Files and programs like the code in `current_age_for_birth_year.rb` are common and valuable. That file isn't meant to be useful alone. Rather, that file is considered a library. It's a unit of code that just defines a functionality or method that are meant to be loaded and used in more complex programs.
+Files and programs like the code in `current_age_for_birth_year.rb` are common and valuable. That file isn't meant to be useful alone. Rather, that file is considered a library. It's a unit of code that just defines a functionality or method that is meant to be loaded and used in more complex programs.
 
 For example, an application that displays a profile of a person might require or load this simple program and use the defined method to display the person's age.
 
@@ -258,7 +258,7 @@ users_age = current_age_for_birth_year(birth_year)
 puts "You are: " + users_age.to_s + " years old."
 ```
 
-Run this program with `ruby how_old_are_you.rb`. There shouldn't be any errors if you copied all the code from the tutorial but if they are, just read them and try to debug them or ask for help on Learn.
+Run this program with `ruby how_old_are_you.rb`. There shouldn't be any errors if you copied all the code from the tutorial but if there are, just read them and try to debug them or ask for help on Learn.
 
 What this program does is load the code in our original program `current_age_for_birth_year.rb`. It then prints the string "What year were you born?". It prompts the user for input via the `gets` method and converts the input to an integer with `to_i`.
 
