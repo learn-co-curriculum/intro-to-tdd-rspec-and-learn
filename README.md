@@ -297,3 +297,15 @@ end
 ```
 
 That would be a better implementation of `current_age_for_birth_year` as it is more abstract.
+
+## Conclusion
+
+Remember, for now you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
+
+## Resources
+
+* [Reading Error Messages](https://learn.co/tracks/web-development-with-ruby-on-rails/ruby/ruby-introduction/reading-error-messages)
+
+* [Fixing Our Broken Program](https://learn.co/tracks/web-development-with-ruby-on-rails/ruby/ruby-introduction/fixing-our-broken-program)
+
+* [Debugging Errors in your Ruby Code](https://learn.co/tracks/web-development-with-ruby-on-rails/ruby/ruby-introduction/debugging-errors-in-your-ruby-code)
