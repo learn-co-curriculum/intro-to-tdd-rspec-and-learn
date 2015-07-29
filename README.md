@@ -115,7 +115,7 @@ The next line:
 
 is the RSpec language and can basically be ignored for now beyond the actual semantics and meaning. We are simply saying, via valid Ruby, that this test describes the `current_age_for_birth_year` method. 
 
-The only things that are required in this line of code are the `describe` RSpec method and the Ruby `do` keyword, the rest of this line is entirely arbitrary and of our own design. After all `current_age_for_birth_year method`, is a String of data and could not possibly matter to Ruby because it is not interpreted, it's just data.
+The only things that are required in this line of code are the `describe` RSpec method and the Ruby `do` keyword, the rest of this line is entirely arbitrary and of our own design. After all, `current_age_for_birth_year method` is a String of data and could not possibly matter to Ruby because it is not interpreted, it's just data.
 
 When we write tests we use the `describe` RSpec method and strings to describe what we are testing. This code is entirely for you, the programmer, and has very little meaning to RSpec or Ruby.
 
@@ -165,7 +165,7 @@ end
 
 **A test is always going to be about setting up a state with a known result and comparing that known result or expectation to the behavior of your program, thus ensuring that your program behaves as you expected.**
 
-There are many kind of tests, and test-driven development and RSpec are very complex topics. Just focus on the semantics and meaning of the `*_spec.rb` files for now. It's a tremendously valuable skill to be introduced to this early.
+There are many kinds of tests, and test-driven development and RSpec are very complex topics. Just focus on the semantics and meaning of the `*_spec.rb` files for now. It's a tremendously valuable skill to be introduced to this early.
 
 ### Running Our Tests
 
@@ -210,7 +210,7 @@ current_age_for_birth_year method
   returns the age of a person based on the year of birth (FAILED - 1)
 ```
 
-Those lines are summaries of what we are testing and what failed. They correspond directly to the strings provided to `describe` and `it` and are simply there to provide context.
+Those lines are summaries of what we are testing and what failed. They correspond directly to the strings provided to `describe` and `it`, and they are simply there to provide context.
 
 ```bash
   1) current_age_for_birth_year method returns the age of a person based on the year of birth
@@ -242,7 +242,7 @@ The above line raises the line of code in our test suite that created the failur
      # ./spec/current_age_for_birth_year_spec.rb:5:in `block (2 levels) in <top (required)>'
 ```
 
-Before writing any code, our test suite is failing because a line of code within it: 
+Before writing any code, our test suite is failing because of a line of code within it: 
 
 `age_of_person = current_age_for_birth_year(1984)`. 
 
@@ -254,13 +254,13 @@ It's totally cool to have errors—a big part of programming is simply getting p
 
 ### Reading Errors And Making Our Tests Pass
 
-So, we conceptually understand what we're trying to build, a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `31`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
+So, we conceptually understand what we're trying to build: a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `31`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
 
-The first error thrown by the test suite is that our code, defined in `current_age_for_birth_year.rb`, should have defined a method called `current_age_for_birth_year`, but did not resulting in a `NoMethodError`.
+The first error thrown by the test suite is that our code, defined in `current_age_for_birth_year.rb`, should have defined a method called `current_age_for_birth_year`, but did not, resulting in a `NoMethodError`.
 
 Let's fix this error by defining a method in `current_age_for_birth_year.rb` called `current_age_for_birth_year`.
 
-Add the following to the file: `current_age_for_birth_year.rb`
+Add the following to the file, `current_age_for_birth_year.rb`:
 
 ```ruby
 def current_age_for_birth_year
@@ -280,7 +280,7 @@ Save the file and go back to your terminal and run the `learn` command. You'll s
 
 #### `ArgumentError:`
 
-Our tests are still failing, but for a new reason. Previously we lacked the method definition. Now we have the method defined, however, our tests are complaining that the line of code `age_of_person = current_age_for_birth_year(1984)` invoked the method `current_age_for_birth_year` incorrectly because it called that method with an argument but the method *we* defined does not accept an argument. 
+Our tests are still failing, but for a new reason. Previously we lacked the method definition. Now we have the method defined; however, our tests are complaining that the line of code, `age_of_person = current_age_for_birth_year(1984)`, invoked the method `current_age_for_birth_year` incorrectly because it called that method with an argument but the method *we* defined does not accept an argument. 
 
 This results in an `ArgumentError`.
 
@@ -361,9 +361,9 @@ Run this program with `ruby how_old_are_you.rb`. There shouldn't be any errors i
 
 What this program does is load the code in our original program `current_age_for_birth_year.rb`. It then prints the string `"What year were you born?"`. It prompts the user for input via the `gets` method and converts the input to an integer with `to_i`.
 
-The program then invokes (or calls) the method `current_age_for_birth_year`. The cool part is that this method is not defined within this file, rather, it was defined in a singular, simple file, and just loaded and used in this more complex program. That's the heart of abstraction and encapsulation; `how_old_are_you.rb` doesn't need to know how `current_age_for_birth_year.rb` works, it just gets to load the code and rely that it behaves as expected and defined in the tests for that library.
+The program then invokes (or calls) the method `current_age_for_birth_year`. The cool part is that this method is not defined within this file, rather, it was defined in a singular, simple file, and just loaded and used in this more complex program. That's the heart of abstraction and encapsulation: `how_old_are_you.rb` doesn't need to know how `current_age_for_birth_year.rb` works, it just gets to load the code and trusts that it behaves as expected, as it was defined in the tests for that library.
 
-This is the architecture of real applications. Each file is a singular, simple, component or "unit of work". The files are loaded together by an execution file and the discrete units execute together to make complex and amazing applications.
+This is the architecture of real applications. Each file is a singular, simple component or "unit of work". The files are loaded together by an execution file and the discrete units execute together to make complex and amazing applications.
 
 #### Our Tests Are Only Temporarily Correct
 
@@ -400,7 +400,7 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 
 ## Conclusion
 
-Remember, for now you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
+Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
 
 ## Resources
 
