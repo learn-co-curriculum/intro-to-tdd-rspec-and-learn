@@ -322,7 +322,7 @@ end
 
 Run `learn` again and you should see the test suite passing. Great job!
 
-At this point you should stage your solution with `git add .` and commit it with `git commit -am "Done"` and push it with `git push`. Then open a pull request to pass this lab.
+At this point, you can submit your solution with `learn submit`
 
 After you finish, here's some more to think about:
 
