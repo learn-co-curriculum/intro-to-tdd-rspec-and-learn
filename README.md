@@ -248,9 +248,9 @@ Before writing any code, our test suite is failing because of a line of code wit
 
 This line tried calling a method, `current_age_for_birth_year`, which your test expected to have been defined. You have yet to define it, however, resulting in a `NoMethodError`.
 
-**Tip:** We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again. Run the test suite a lot; get instant feedback; read the errors, they are clues. 
+**Tip:** We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again. Run the test suite a lot. Get instant feedback. Read the errors; they are clues. 
 
-It's totally cool to have errors—a big part of programming is simply getting past the current error your test suite raises and getting to a new error. Progressing through errors until your tests pass is a very normal development cycle.
+It's totally cool to have errors--a big part of programming is simply getting past the current error your test suite raises and getting to a new error. Progressing through errors until your tests pass is a very normal development cycle.
 
 ### Reading Errors And Making Our Tests Pass
 
