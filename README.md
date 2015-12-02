@@ -403,3 +403,5 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
 
 ## Resources
+
+<a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' data-visibility='hidden'>View this lesson on Learn.co</a>
