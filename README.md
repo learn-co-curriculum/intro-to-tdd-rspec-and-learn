@@ -69,6 +69,8 @@ Let's take a peek inside:
 
 `spec/current_age_for_birth_year_spec.rb`
 
+"Full path:  `~/code/labs/intro-to-tdd-rspec-and-learn-q-000/spec/current_age_for_birth_year_spec.rb`"
+
 All of our tests are located within the `spec` directory. The code within the `spec` directory is already designed to test that your code works. For now, you rarely need to change any code within the `spec` directory.
 
 Our actual code, our programs, our solutions to the challenges in the lab, the stuff that makes our tests pass, are all coded outside of the `spec` directory, generally in the root of the lab directory or in files in directories like `lib` or `app`.
@@ -403,5 +405,3 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
 
 ## Resources
-
-<a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' data-visibility='hidden'>View this lesson on Learn.co</a>
