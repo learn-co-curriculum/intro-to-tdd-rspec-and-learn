@@ -41,7 +41,7 @@ We could conceive of needing to write a method `current_age_for_birth_year` to a
 
 Our method will need to take in the user's birth year, subtract that from the current year, and return the user's age. 
 
-If the year is currently 2015 and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `31`. 
+If the year is currently 2016 and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `31`. 
 
 *Expressing that narrative in code is called a test!* 
 
@@ -159,7 +159,7 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 it "should return the current year for a person born in year 0" do
   twenty_fifteen = current_age_for_birth_year(0)
 
-  expect(twenty_fifteen).to eq(2015)
+  expect(twenty_fifteen).to eq(2016)
 end
 ```
 
@@ -316,7 +316,7 @@ How do we calculate the difference between the year currently and the year provi
 
 ```ruby
 def current_age_for_birth_year(birth_year)
-  2015 - birth_year
+  2016 - birth_year
 end
 ```
 
