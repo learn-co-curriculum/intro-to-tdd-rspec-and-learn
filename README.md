@@ -41,7 +41,7 @@ We could conceive of needing to write a method `current_age_for_birth_year` to a
 
 Our method will need to take in the user's birth year, subtract that from the current year, and return the user's age. 
 
-If the year is currently 2015 and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `31`. 
+If the year is currently 2016 and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `32`. 
 
 *Expressing that narrative in code is called a test!* 
 
@@ -50,7 +50,7 @@ If the year is currently 2015 and I was born in 1984, when I call the method `cu
 In an ideal world, I could code this requirement with something like:
 
 ```
-I expect the method current_age_for_birth_year(1984) to return 31
+I expect the method current_age_for_birth_year(1984) to return 32
 ```
 
 Unfortunately, we don't live in an ideal world. Fortunately, we have the RSpec Testing Framework.
@@ -81,7 +81,7 @@ and our actual program and solution will be in a file:
 
 `current_age_for_birth_year.rb`.
 
-When we run our test program, `spec/current_age_for_birth_year_spec.rb`, that code will load the code in `current_age_for_birth_year.rb` and try to execute `current_age_for_birth_year(1984)` with the expectation that it returns `31`. If so, the test will pass. Anything else will make it fail.
+When we run our test program, `spec/current_age_for_birth_year_spec.rb`, that code will load the code in `current_age_for_birth_year.rb` and try to execute `current_age_for_birth_year(1984)` with the expectation that it returns `32`. If so, the test will pass. Anything else will make it fail.
 
 File: `spec/current_age_for_birth_year_spec.rb`
 
@@ -92,7 +92,7 @@ describe "current_age_for_birth_year method" do
   it "returns the age of a person based on the year of birth" do
     age_of_person = current_age_for_birth_year(1984)
     
-    expect(age_of_person).to eq(31)
+    expect(age_of_person).to eq(32)
   end
 end
 ```
@@ -145,11 +145,11 @@ What do you think the value of `age_of_person` should be if the method `current_
 
 The next line of code poses that exact question with an expected outcome. Using lots of RSpec methods and syntax, we say, quite colloquially: 
 
-`expect(age_of_person).to eq(31)`
+`expect(age_of_person).to eq(32)`
 
-What this line of code means is that we `expect` the value of the variable `age_of_person` to equal `31`. 
+What this line of code means is that we `expect` the value of the variable `age_of_person` to equal `32`. 
 
-That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals `31`, the age of the person born in 1984. That's a test.
+That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals `32`, the age of the person born in 1984. That's a test.
 
 Our test loads our code, uses our code in the manner desired, and compares the result of our code with a known outcome so that we know our code behaves as we expected.
 
@@ -159,7 +159,7 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 it "should return the current year for a person born in year 0" do
   twenty_fifteen = current_age_for_birth_year(0)
 
-  expect(twenty_fifteen).to eq(2015)
+  expect(twenty_fifteen).to eq(2016)
 end
 ```
 
@@ -254,7 +254,7 @@ It's totally cool to have errors--a big part of programming is simply getting pa
 
 ### Reading Errors And Making Our Tests Pass
 
-So, we conceptually understand what we're trying to build: a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `31`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
+So, we conceptually understand what we're trying to build: a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `32`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
 
 The first error thrown by the test suite is that our code, defined in `current_age_for_birth_year.rb`, should have defined a method called `current_age_for_birth_year`, but did not, resulting in a `NoMethodError`.
 
@@ -299,16 +299,16 @@ Run `learn` again and your failures should resemble:
 
 ```
   1) current_age_for_birth_year method returns the age of a person based on the year of birth
-     Failure/Error: expect(age_of_person).to eq(31)
+     Failure/Error: expect(age_of_person).to eq(32)
        
-       expected: 31
+       expected: 32
             got: nil
        
        (compared using ==)
      # ./spec/current_age_for_birth_year_spec.rb:6:in `block (2 levels) in <top (required)>'
 ```
 
-This failure isn't a syntax error related to undefined methods or arguments. Instead, this error is telling us that we expected the return value of the method `current_age_for_birth_year(1984)`, stored in the variable `age_of_person` to equal 31, but in actuality, the method returned the value `nil`.
+This failure isn't a syntax error related to undefined methods or arguments. Instead, this error is telling us that we expected the return value of the method `current_age_for_birth_year(1984)`, stored in the variable `age_of_person` to equal 32, but in actuality, the method returned the value `nil`.
 
 That's perfect. Our test is showing a **mismatched expectation**. We need to add actual logic to that method to solve the problem.
 
@@ -316,7 +316,7 @@ How do we calculate the difference between the year currently and the year provi
 
 ```ruby
 def current_age_for_birth_year(birth_year)
-  2015 - birth_year
+  2016 - birth_year
 end
 ```
 
@@ -403,3 +403,5 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
 
 ## Resources
+
+<a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' data-visibility='hidden'>View this lesson on Learn.co</a>
