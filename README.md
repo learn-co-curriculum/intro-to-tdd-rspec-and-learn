@@ -157,9 +157,9 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 
 ```ruby
 it "should return the current year for a person born in year 0" do
-  twenty_fifteen = current_age_for_birth_year(0)
+  twenty_sixteen = current_age_for_birth_year(0)
 
-  expect(twenty_fifteen).to eq(2016)
+  expect(twenty_sixteen).to eq(2016)
 end
 ```
 
@@ -404,4 +404,6 @@ Remember, for now, you are not being asked to write your own tests. The importan
 
 ## Resources
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' title='Intro to TDD, RSpec, and Learn'>Intro to TDD, RSpec, and Learn</a> on Learn.co and start learning to code for free.</p>
+<a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn'>TDD, Rspec, and Learn </a> on Learn.co and start learning to code for free.</p>
