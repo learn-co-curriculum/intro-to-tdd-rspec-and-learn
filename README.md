@@ -157,9 +157,9 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 
 ```ruby
 it "should return the current year for a person born in year 0" do
-  twenty_fifteen = current_age_for_birth_year(0)
+  twenty_sixteen = current_age_for_birth_year(0)
 
-  expect(twenty_fifteen).to eq(2016)
+  expect(twenty_sixteen).to eq(2016)
 end
 ```
 
@@ -403,5 +403,10 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
 
 ## Resources
+[Tutsplus -  RSpec Testing for Beginners](http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716)
 
 <a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn'>TDD, Rspec, and Learn </a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-tdd-rspec-and-learn'>TDD, Rspec, and Learn </a> on Learn.co and start learning to code for free.</p>
