@@ -16,7 +16,7 @@ Tests verify that the code you write behaves and produces the desired result. Ma
 
 Test-driven development is a big topic and you're not going to be writing your own tests for a while. It is an important concept though, so we'll touch on it briefly here. 
 
-The basic idea behind TDD is that you should think about what you want your program to do and how you want your code to behave *before* you start coding. Especially as you begin to write more complex programs or develop applications, bringing this mindfulness to your development process will help you to write code that is robust (doesn't break all the time), flexible (accommodates future change and growth) and is easy for other developers to understand. 
+The basic idea behind TDD is that you should think about what you want your program to do and how you want your code to behave *before* you start coding. Especially as you begin to write more complex programs or develop applications, bringing this mindfulness to your development process will help you to write code that is robust (doesn't break all the time), flexible (accommodates future change and growth) and easy for other developers to understand. 
 
 #### How Does TDD Work?
 
