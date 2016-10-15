@@ -125,9 +125,9 @@ After describing the subject of our test, the method `current_age_for_birth_year
 
 * `it "returns the age of a person based on their year of birth" do` is very similar to the `describe` line. 
 
-* `it` is an RSpec method
+* **`it` is an RSpec method**
 
-* `do` is a Ruby keyword
+* **`do` is a Ruby keyword**
 
 `"returns the age of a person based on the year of birth"` is a Ruby string that has no meaning to the code and is only there to provide you, the programmer, with a description of what behavior we're currently testing.
 
