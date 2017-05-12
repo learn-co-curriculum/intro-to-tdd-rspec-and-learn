@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.editorconfig
+
+log
+node_modules
+out
+tmp
+
+*.iml
+*.log
+*.swp
