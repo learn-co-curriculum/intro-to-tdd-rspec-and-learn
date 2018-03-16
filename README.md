@@ -312,7 +312,7 @@ This failure isn't a syntax error related to undefined methods or arguments. Ins
 
 That's perfect. Our test is showing a **mismatched expectation**. We need to add actual logic to that method to solve the problem.
 
-How do we calculate the difference between the year currently and the year provided to the method as an argument `birth_year`? You might simply subtract the current year, 2003 in our case, from the birth year.
+How do we calculate the difference between the year currently and the year provided to the method as an argument `birth_year`? You might simply subtract the birth year from the current year, 2003 in our case.
 
 ```ruby
 def current_age_for_birth_year(birth_year)
