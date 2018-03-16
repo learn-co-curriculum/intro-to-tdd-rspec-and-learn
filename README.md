@@ -14,16 +14,16 @@ Tests verify that the code you write behaves and produces the desired result. Ma
 
 #### What is TDD?
 
-Test-driven development is a big topic and you're not going to be writing your own tests for a while. It is an important concept though, so we'll touch on it briefly here. 
+Test-driven development is a big topic and you're not going to be writing your own tests for a while. It is an important concept though, so we'll touch on it briefly here.
 
-The basic idea behind TDD is that you should think about what you want your program to do and how you want your code to behave *before* you start coding. Especially as you begin to write more complex programs or develop applications, bringing this mindfulness to your development process will help you to write code that is robust (doesn't break all the time), flexible (accommodates future change and growth) and is easy for other developers to understand. 
+The basic idea behind TDD is that you should think about what you want your program to do and how you want your code to behave *before* you start coding. Especially as you begin to write more complex programs or develop applications, bringing this mindfulness to your development process will help you to write code that is robust (doesn't break all the time), flexible (accommodates future change and growth) and easy for other developers to understand.
 
 #### How Does TDD Work?
 
 Once again, you won't be writing your own tests for a while, so we'll only touch on this process briefly. Conceptually, TDD is simple:
 
-* First, write the test for a specific function of your code. 
-* *Then*, write the code to make the test pass. 
+* First, write the test for a specific function of your code.
+* *Then*, write the code to make the test pass.
 
 Let's walk through an example together.
 
@@ -31,37 +31,37 @@ Let's walk through an example together.
 
 #### Identifying the Desired Behavior
 
-Before we can write any tests, we need to think about what our program needs to do. In other words, what is the desired behavior of our code? 
+Before we can write any tests, we need to think about what our program needs to do. In other words, what is the desired behavior of our code?
 
-Let's say you run a popular social networking site. We'll call it MyFace, a name inspired by nothing in particular. 
+Let's say you run a popular social networking site. We'll call it MyFace, a name inspired by nothing in particular.
 
 Your users will fill out their profile information with what year they were born. You will subsequently need to display how old they are on their profile page.
 
-We could conceive of needing to write a method `current_age_for_birth_year` to accomplish this task. 
+We could conceive of needing to write a method `current_age_for_birth_year` to accomplish this task.
 
-Our method will need to take in the user's birth year, subtract that from the current year, and return the user's age. 
+Our method will need to take in the user's birth year, subtract that from the current year, and return the user's age.
 
-If the year is currently 2016 and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `32`. 
+**If the year is currently 2003** and I was born in 1984, when I call the method `current_age_for_birth_year` and provide it my birth year, 1984, by passing that year as an argument, `current_age_for_birth_year(1984)`, I expect it to return `19`.
 
-*Expressing that narrative in code is called a test!* 
+*Expressing that narrative in code is called a test!*
 
 #### Coding Our Test
 
 In an ideal world, I could code this requirement with something like:
 
 ```
-I expect the method current_age_for_birth_year(1984) to return 32
+I expect the method current_age_for_birth_year(1984) to return 19
 ```
 
 Unfortunately, we don't live in an ideal world. Fortunately, we have the RSpec Testing Framework.
 
-The [RSpec Testing Framework](http://rspec.info/) is a ruby library designed to allow programmers to describe the behavior and outcomes of their programs in a very natural language similar to the above example. Lots of Ruby and Ruby on Rails labs on Learn include RSpec tests. 
+The [RSpec Testing Framework](http://rspec.info/) is a ruby library designed to allow programmers to describe the behavior and outcomes of their programs in a very natural language similar to the above example. Lots of Ruby and Ruby on Rails labs on Learn include RSpec tests.
 
 Let's learn a bit about RSpec.
 
 #### Understanding the Test in the `spec` Directory
 
-If you haven't already, fork this lab and clone it down onto your machine. 
+If you haven't already, fork this lab and clone it down onto your machine.
 
 ** Remember, at this point all we want you to be able to do is understand testing at a high level. The idea is that labs come with expectations for how your code should behave and you write the code to make those tests pass. **
 
@@ -75,13 +75,13 @@ Our actual code, our programs, our solutions to the challenges in the lab, the s
 
 In this lab, our tests are in:
 
- `spec/current_age_for_birth_year_spec.rb` 
- 
+ `spec/current_age_for_birth_year_spec.rb`
+
 and our actual program and solution will be in a file:
 
 `current_age_for_birth_year.rb`.
 
-When we run our test program, `spec/current_age_for_birth_year_spec.rb`, that code will load the code in `current_age_for_birth_year.rb` and try to execute `current_age_for_birth_year(1984)` with the expectation that it returns `32`. If so, the test will pass. Anything else will make it fail.
+When we run our test program, `spec/current_age_for_birth_year_spec.rb`, that code will load the code in `current_age_for_birth_year.rb` and try to execute `current_age_for_birth_year(1984)` with the expectation that it returns `19`. If so, the test will pass. Anything else will make it fail.
 
 File: `spec/current_age_for_birth_year_spec.rb`
 
@@ -91,8 +91,8 @@ require_relative '../current_age_for_birth_year.rb'
 describe "current_age_for_birth_year method" do
   it "returns the age of a person based on the year of birth" do
     age_of_person = current_age_for_birth_year(1984)
-    
-    expect(age_of_person).to eq(32)
+
+    expect(age_of_person).to eq(19)
   end
 end
 ```
@@ -105,15 +105,15 @@ The first line of the test:
 
 `require_relative '../current_age_for_birth_year.rb'`
 
-loads the code from our actual program file so that we can use all the code in that file in our test. That line connects our test to our actual program. 
+loads the code from our actual program file so that we can use all the code in that file in our test. That line connects our test to our actual program.
 
 **The `describe` method in RSpec:**
 
-The next line: 
+The next line:
 
-`describe "current_age_for_birth_year method" do` 
+`describe "current_age_for_birth_year method" do`
 
-is the RSpec language and can basically be ignored for now beyond the actual semantics and meaning. We are simply saying, via valid Ruby, that this test describes the `current_age_for_birth_year` method. 
+is the RSpec language and can basically be ignored for now beyond the actual semantics and meaning. We are simply saying, via valid Ruby, that this test describes the `current_age_for_birth_year` method.
 
 The only things that are required in this line of code are the `describe` RSpec method and the Ruby `do` keyword, the rest of this line is entirely arbitrary and of our own design. After all, `current_age_for_birth_year method` is a String of data and could not possibly matter to Ruby because it is not interpreted, it's just data.
 
@@ -121,9 +121,9 @@ When we write tests we use the `describe` RSpec method and strings to describe w
 
 **The `it` method in Rspec:**
 
-After describing the subject of our test, the method `current_age_for_birth_year`, we use the RSpec method `it` to state an expectation or behavior of that method. 
+After describing the subject of our test, the method `current_age_for_birth_year`, we use the RSpec method `it` to state an expectation or behavior of that method.
 
-* `it "returns the age of a person based on their year of birth" do` is very similar to the `describe` line. 
+* `it "returns the age of a person based on their year of birth" do` is very similar to the `describe` line.
 
 * `it` is an RSpec method
 
@@ -135,21 +135,21 @@ After describing the subject of our test, the method `current_age_for_birth_year
 
 The next three lines are our actual test code and the most important part of the `spec/current_age_for_birth_year_spec.rb` file. It is within this block of code––between `it` and `end`––that we test the functionality of our method.
 
-In order to actually test our code, we need to use the method that this test relies on, that this test is designed to exercise. So the first real line of code in our test is: 
+In order to actually test our code, we need to use the method that this test relies on, that this test is designed to exercise. So the first real line of code in our test is:
 
 `age_of_person = current_age_for_birth_year(1984)`
 
-What we're doing here is calling a method, `current_age_for_birth_year(1984)`, the very method we're supposed to define and implement, passing it a known argument, `1984`, and assigning the return value of the method to a variable called `age_of_person`. 
+What we're doing here is calling a method, `current_age_for_birth_year(1984)`, the very method we're supposed to define and implement, passing it a known argument, `1984`, and assigning the return value of the method to a variable called `age_of_person`.
 
 What do you think the value of `age_of_person` should be if the method `current_age_for_birth_year` is called with `1984` as the argument?
 
-The next line of code poses that exact question with an expected outcome. Using lots of RSpec methods and syntax, we say, quite colloquially: 
+The next line of code poses that exact question with an expected outcome. Using lots of RSpec methods and syntax, we say, quite colloquially:
 
-`expect(age_of_person).to eq(32)`
+`expect(age_of_person).to eq(19)`
 
-What this line of code means is that we `expect` the value of the variable `age_of_person` to equal `32`. 
+What this line of code means is that we `expect` the value of the variable `age_of_person` to equal `19`.
 
-That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals `32`, the age of the person born in 1984. That's a test.
+That is to say, given that `age_of_person` is the return value of the method `current_age_for_birth_year(1984)`, we can expect that the variable equals `19`, the age of the person born in 1984. That's a test.
 
 Our test loads our code, uses our code in the manner desired, and compares the result of our code with a known outcome so that we know our code behaves as we expected.
 
@@ -159,7 +159,7 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 it "should return the current year for a person born in year 0" do
   twenty_sixteen = current_age_for_birth_year(0)
 
-  expect(twenty_sixteen).to eq(2016)
+  expect(twenty_sixteen).to eq(2003)
 end
 ```
 
@@ -179,7 +179,7 @@ So, once again, to run your tests, go into your terminal and type `learn` in thi
 
 #### Understanding Test Output
 
-When you run the tests with the `learn` command you're going to see the results of the test in your console. RSpec will report on what is working and what is broken and why. 
+When you run the tests with the `learn` command you're going to see the results of the test in your console. RSpec will report on what is working and what is broken and why.
 
 When you run this lab's test suite with `learn`, before writing any solution code in `current_age_for_birth_year.rb`, you'll see output similar to:
 
@@ -220,7 +220,7 @@ Those lines are summaries of what we are testing and what failed. They correspon
      # ./spec/current_age_for_birth_year_spec.rb:5:in `block (2 levels) in <top (required)>'
 ```
 
-This actually describes why our test failed. 
+This actually describes why our test failed.
 
 ```bash
   1) current_age_for_birth_year method returns the age of a person based on the year of birth
@@ -242,19 +242,19 @@ The above line raises the line of code in our test suite that created the failur
      # ./spec/current_age_for_birth_year_spec.rb:5:in `block (2 levels) in <top (required)>'
 ```
 
-Before writing any code, our test suite is failing because of a line of code within it: 
+Before writing any code, our test suite is failing because of a line of code within it:
 
-`age_of_person = current_age_for_birth_year(1984)`. 
+`age_of_person = current_age_for_birth_year(1984)`.
 
 This line tried calling a method, `current_age_for_birth_year`, which your test expected to have been defined. You have yet to define it, however, resulting in a `NoMethodError`.
 
-**Tip:** We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again. Run the test suite a lot. Get instant feedback. Read the errors; they are clues. 
+**Tip:** We can run our test suite as many times as we want, it's totally free. In fact, we suggest that every time you make a change to your code and think it might solve something in the test, run the test suite again. Run the test suite a lot. Get instant feedback. Read the errors; they are clues.
 
 It's totally cool to have errors--a big part of programming is simply getting past the current error your test suite raises and getting to a new error. Progressing through errors until your tests pass is a very normal development cycle.
 
 ### Reading Errors And Making Our Tests Pass
 
-So, we conceptually understand what we're trying to build: a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `32`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
+So, we conceptually understand what we're trying to build: a method called `current_age_for_birth_year`, that when given an argument of a year of birth, `current_age_for_birth_year(1984)`, returns the age of a person, `19`. Our test suite actually tries to execute this code and compares the result of it to the desired outcome, failing until the expectation and the outcome are equal.
 
 The first error thrown by the test suite is that our code, defined in `current_age_for_birth_year.rb`, should have defined a method called `current_age_for_birth_year`, but did not, resulting in a `NoMethodError`.
 
@@ -280,7 +280,7 @@ Save the file and go back to your terminal and run the `learn` command. You'll s
 
 #### `ArgumentError:`
 
-Our tests are still failing, but for a new reason. Previously we lacked the method definition. Now we have the method defined; however, our tests are complaining that the line of code, `age_of_person = current_age_for_birth_year(1984)`, invoked the method `current_age_for_birth_year` incorrectly because it called that method with an argument but the method *we* defined does not accept an argument. 
+Our tests are still failing, but for a new reason. Previously we lacked the method definition. Now we have the method defined; however, our tests are complaining that the line of code, `age_of_person = current_age_for_birth_year(1984)`, invoked the method `current_age_for_birth_year` incorrectly because it called that method with an argument but the method *we* defined does not accept an argument.
 
 This results in an `ArgumentError`.
 
@@ -299,24 +299,24 @@ Run `learn` again and your failures should resemble:
 
 ```
   1) current_age_for_birth_year method returns the age of a person based on the year of birth
-     Failure/Error: expect(age_of_person).to eq(32)
-       
-       expected: 32
+     Failure/Error: expect(age_of_person).to eq(19)
+
+       expected: 19
             got: nil
-       
+
        (compared using ==)
      # ./spec/current_age_for_birth_year_spec.rb:6:in `block (2 levels) in <top (required)>'
 ```
 
-This failure isn't a syntax error related to undefined methods or arguments. Instead, this error is telling us that we expected the return value of the method `current_age_for_birth_year(1984)`, stored in the variable `age_of_person` to equal 32, but in actuality, the method returned the value `nil`.
+This failure isn't a syntax error related to undefined methods or arguments. Instead, this error is telling us that we expected the return value of the method `current_age_for_birth_year(1984)`, stored in the variable `age_of_person` to equal 19, but in actuality, the method returned the value `nil`.
 
 That's perfect. Our test is showing a **mismatched expectation**. We need to add actual logic to that method to solve the problem.
 
-How do we calculate the difference between the year currently and the year provided to the method as an argument `birth_year`? You might simply subtract the current year from the birth year.
+How do we calculate the difference between the year currently and the year provided to the method as an argument `birth_year`? You might simply subtract the birth year from the current year, 2003 in our case.
 
 ```ruby
 def current_age_for_birth_year(birth_year)
-  2016 - birth_year
+  2003 - birth_year
 end
 ```
 
@@ -352,7 +352,7 @@ require_relative './current_age_for_birth_year.rb'
 puts "What year were you born?"
 birth_year = gets.to_i
 
-users_age = current_age_for_birth_year(birth_year)
+users_age = current_age_for_birth_year(birth_year) + (Time.now.year - 2003)
 
 puts "You are: " + users_age.to_s + " years old."
 ```
@@ -367,11 +367,11 @@ This is the architecture of real applications. Each file is a singular, simple c
 
 #### Our Tests Are Only Temporarily Correct
 
-The second weird thing about the current implementation is that the test suite and our solution are brittle and can produce a false positive. In a year, our code will break but our tests will still pass. As long as we are relying on hard coded notions of the current year, our code and tests aren't honest. Imagine the following test, making use of Ruby's `Time` class and methods.
+The second weird thing about the current implementation is that the test suite and our solution are brittle and can produce a false positive. In the future, our code will break but our tests will still pass. As long as we are relying on hard coded notions of the current year, our code and tests aren't honest. Imagine the following test, making use of Ruby's `Time` class and methods.
 
 File: `spec/current_age_for_birth_year_spec.rb`
 
-```ruby 
+```ruby
 require_relative '../current_age_for_birth_year.rb'
 
 describe "current_age_for_birth_year method" do
@@ -400,7 +400,7 @@ That would be a better implementation of `current_age_for_birth_year` as it is m
 
 ## Conclusion
 
-Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills. 
+Remember, for now, you are not being asked to write your own tests. The important take away here is how to *read* tests and understand error messages that get outputted as a result of running them. You can refer back to earlier lessons (see below) to review those skills.
 
 ## Resources
 [Tutsplus -  RSpec Testing for Beginners](http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716)

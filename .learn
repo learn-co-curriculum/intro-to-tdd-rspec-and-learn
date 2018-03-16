@@ -5,5 +5,6 @@ tags:
   - methods
   - arguments
   - return values
+resources: 0
 languages:
   - ruby
