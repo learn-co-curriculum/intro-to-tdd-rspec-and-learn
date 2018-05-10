@@ -157,9 +157,9 @@ We could imagine another specification of the `current_age_for_birth_year` metho
 
 ```ruby
 it "should return the current year for a person born in year 0" do
-  twenty_sixteen = current_age_for_birth_year(0)
+  age = current_age_for_birth_year(0)
 
-  expect(twenty_sixteen).to eq(2003)
+  expect(age).to eq(2003)
 end
 ```
 
